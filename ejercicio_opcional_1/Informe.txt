@@ -1,0 +1,17 @@
+Datos de latencia para mutex y semáforos:
+
+En este ejercicio, analicé 55.238 muestras tanto para mutex como para semáforos. Para el mutex, encontré que la latencia más baja fue de 40 nanosegundos, mientras que la más alta llegó a 24.906 nanosegundos. El promedio se situó en 313,74 nanosegundos y la desviación estándar fue de 368,16 nanosegundos. En el caso del semáforo, los resultados fueron bastante similares, pero con algunas diferencias: la latencia mínima fue de 77 nanosegundos, la máxima de 43.154 nanosegundos, el promedio de 331,22 nanosegundos y la desviación estándar de 345,47 nanosegundos.
+
+Análisis de resultados:
+
+Al examinar estos datos, me di cuenta de que el mutex parece ser ligeramente más rápido que el semáforo, ya que su promedio es unos 17 nanosegundos menor. Creo que esta diferencia se debe a que, según lo que hemos estudiado en clase, pthread_mutex utiliza FUTEX, que está diseñado específicamente para reducir el número de llamadas al sistema y los cambios de contexto. Solo realiza una llamada al sistema cuando el recurso está bloqueado y es necesario esperar, lo que lo hace más eficiente.
+
+Cuando miré el histograma, pude ver que la mayoría de las mediciones para ambos se concentran en valores bajos de latencia, entre 0 y 1000 nanosegundos. Noté que el mutex tiene una distribución un poco más dispersa, lo que explica por qué su desviación estándar es mayor. En cambio, el semáforo presenta una agrupación más compacta en el gráfico, aunque con algunos valores extremos más altos.
+
+Cabe destacar que ambos sistemas siguen un patrón similar, ya que casi todas las operaciones son muy rápidas, pero hay unas pocas que toman mucho más tiempo. Esto concuerda con lo que hemos visto sobre cómo FUTEX utiliza wait queues para realizar espera pasiva en el kernel, optimizando así el uso de CPU.
+
+En conclusión, después de analizar todos estos datos, creo que la ventaja del mutex en velocidad se debe principalmente al uso de FUTEX, que minimiza las operaciones costosas. Sin embargo, el semáforo ofrece una mayor consistencia.
+
+Repositorio de código:
+https://github.com/Ruben249/sistemas_distribuidos_ejercicios_opcionales/tree/main/ejercicio_opcional_1
+
