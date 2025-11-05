@@ -14,6 +14,10 @@ Cabe destacar que ambos sistemas siguen un patrón similar, ya que casi todas la
 
 En conclusión, después de analizar todos estos datos, creo que la ventaja del mutex en velocidad se debe principalmente al uso de FUTEX, que minimiza las operaciones costosas. Sin embargo, el semáforo ofrece una mayor consistencia.
 
+## Histograma
+<img width="1200" height="800" alt="Comparacion" src="https://github.com/user-attachments/assets/b070cef8-8d16-4ba7-8bbd-74a4b4429ae8" />
+
+
 Repositorio de código:
 https://github.com/Ruben249/sistemas_distribuidos_ejercicios_opcionales/tree/main/ejercicio_opcional_1
 
