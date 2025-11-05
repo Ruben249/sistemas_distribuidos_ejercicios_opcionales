@@ -1,8 +1,10 @@
-Datos de latencia para mutex y semáforos:
+# Ejercicio opcional 1
+
+## Datos de latencia para mutex y semáforos:
 
 En este ejercicio, analicé 55.315 muestras para mutex y 55.557 muestras para semáforos. Para el mutex, encontré que la latencia más baja fue de 46 nanosegundos, mientras que la más alta llegó a 25.516 nanosegundos. El promedio se situó en 375,83 nanosegundos y la desviación estándar fue de 386,98 nanosegundos. En el caso del semáforo, los resultados mostraron diferencias más marcadas: la latencia mínima fue de 77 nanosegundos, la máxima de 21.534 nanosegundos, el promedio de 427,23 nanosegundos y la desviación estándar de 439,79 nanosegundos.
 
-Análisis de resultados:
+## Análisis de resultados:
 
 Al analizar estos datos, me di cuenta de que el mutex es significativamente más rápido que el semáforo, con una diferencia de aproximadamente 51 nanosegundos en el promedio. Esta diferencia es más notable que en mediciones anteriores, lo que confirma que el mutex tiene un mejor rendimiento. Creo que esta ventaja se debe a que, según lo que hemos estudiado en clase, pthread_mutex utiliza FUTEX, que está diseñado específicamente para reducir el número de llamadas al sistema y los cambios de contexto. Solo realiza una llamada al sistema cuando el recurso está bloqueado y es necesario esperar, lo que lo hace más eficiente.
 
