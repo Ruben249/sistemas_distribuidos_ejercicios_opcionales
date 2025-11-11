@@ -20,4 +20,3 @@ En conclusión, después de analizar todos estos datos, creo que la ventaja del 
 
 Repositorio de código:
 https://github.com/Ruben249/sistemas_distribuidos_ejercicios_opcionales/tree/main/ejercicio_opcional_1
-

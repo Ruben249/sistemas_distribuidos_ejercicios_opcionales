@@ -58,7 +58,7 @@ def create_histogram():
     plt.grid(True, alpha=0.3, linestyle='--', axis='y')
     
     plt.ylim(0, 60000)
-    plt.xlim(0, 30000)
+    plt.xlim(0, 20000)
     
     stats_text = (f'Estadísticas:\n'
                   f'Mutex: {mutex_count} muestras\n'
